@@ -42,7 +42,8 @@
     var name = snapshot.val().name
     var role =  snapshot.val().role
     var startDate = snapshot.val().startDate
-    var monthWorked = moment()
+    var monthWorked = Math.floor(moment(moment().format()).diff(startDate,'months',true))
+    // var monthWorked = moment(startDate, "MM/DD/YYYY").fromNow();
     var monthlyRate = snapshot.val().monthlyRate
     var table = $('table')
   
