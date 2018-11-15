@@ -27,11 +27,43 @@
     var employee = {
         'name': name,
         'role': role,
-        'start date': startDate,
-        'monthly rate': monthlyRate,
+        'startDate': startDate,
+        'monthlyRate': monthlyRate,
     }
 
     console.log(employee)
     // Change what is saved in firebase
     database.ref().push(employee);
   });
+
+  database.ref().on('child_added', function(snapshot){
+
+  
+    var name = snapshot.val().name
+    var role =  snapshot.val().role
+    var startDate = snapshot.val().startDate
+    var monthWorked = moment()
+    var monthlyRate = snapshot.val().monthlyRate
+    var table = $('table')
+  
+    console.log(name)
+    var $name = $('<tr>')
+    $name.html('<td>' + name + '</td><td>' + role + '</td><td>' + startDate + '</td><td>' + monthWorked + '</td>')
+
+  
+
+    // var role = $('<tr>')
+    // role.html('<td>' + role + '</td>')
+
+    table.append($name)
+
+
+  })
+
+  // database.ref().on("value", function(snapshot) {
+
+   
+  //   console.log(snapshot.val());
+
+  
+  // })
