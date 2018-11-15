@@ -1,0 +1,9 @@
+.user-input {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+}
+.name{
+    width: 700px;
+}
