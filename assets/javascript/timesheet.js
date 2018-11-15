@@ -31,7 +31,7 @@
         'monthly rate': monthlyRate,
     }
 
-    console.log(name, role, startDate, monthlyRate)
+    console.log(employee)
     // Change what is saved in firebase
-    database.ref().set(employee);
+    database.ref().push(employee);
   });
